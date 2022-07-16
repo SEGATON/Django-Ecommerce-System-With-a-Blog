@@ -1,0 +1,19 @@
+{% include "django_experiments_app/header.html" %}
+	{% if messages %}
+		{% for message in messages %}
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-2"></div>
+				<div class="col-md-8">
+					<div class="custom_alert_text alert-{{message.tags}}">{{message}}</div>
+					<br>
+				</div>
+				<div class="col-md-2">
+				
+				</div>
+			</div>
+		</div>
+		{% endfor %}
+	{% endif %}
+	{% block content %}{% endblock %}
+{% include "django_experiments_app/footer.html" %}

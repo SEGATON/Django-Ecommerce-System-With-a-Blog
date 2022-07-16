@@ -1,0 +1,133 @@
+{% extends "django_experiments_app/base.html" %}
+
+{% block title %} {{single_product.title}}{% endblock %}
+	{% block content %}
+
+		<div class="container-fluid margin_bottom_50x300">
+			<div class="row">
+					<div class="col-md-2"></div>
+					<div class="col-md-8">
+						<div class="row">
+							<div class="col-md-7">
+								<div class="product_image_gallery_container">
+									<div class="col-lg-12">
+										<div class="product_featured_image">
+											<img src="{{single_product.featured_image.url}}" class="img-fluid">
+										</div>
+									</div>
+									<div class="col-lg-12">
+										<div class="thumbnails">
+											1 |2 | 3 | 4 | 5 | 6 | 7
+										</div>
+									</div>
+
+
+								</div>
+							</div>
+							<div class="col-md-5">
+								<h3 class="single_product_title">{{single_product.title}}</h3>
+
+								<hr>
+
+								<div class="bullet_description_list">
+									<h4 class="single_product_heading">Product details:</h4>
+									{{single_product.bullet_description_list|safe}}
+								</div>
+
+								<hr>
+								<h4 class="single_product_heading">Short description::</h4>
+								{{single_product.short_description|safe}}
+								<hr>
+
+								<p><strong>SKU: </strong>{{single_product.sku}} | <strong>UPC: </strong>{{single_product.upc}}</p>
+
+								<hr>
+
+
+								<div class="add_to_cart_section">
+									<table class="table table-hover">
+										<form action="" method="POST">
+											{% csrf_token %}
+											<tr>
+												<td>Quantity</td>
+												<td><input type="text" name=""></td>
+												<td><button>Buy now</button></td>
+												<td><button>Add to cart</button></td>
+											</tr>
+										</form>
+									</table>
+
+								</div>
+
+
+								<div class="estimated_delivery_time_box">
+									<small><p>Estimated delivery <br>Friday July 15th between 2:30 - 5:30pm EST.</p></small>
+								</div>
+
+							</div>
+						</div>
+					</div>
+					<div class="col-md-2"></div>
+
+			</div>
+		</div>
+
+		<div class="container-fluid">
+			<div class="row">
+					<div class="col-md-2"></div>
+					<div class="col-md-8">
+						
+					</div>
+					<div class="col-md-2"></div>
+
+			</div>
+		</div>
+
+
+
+		<div class="container-fluid">
+			<div class="row">
+					<div class="col-md-2"></div>
+					<div class="col-md-8">
+						<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+							  <li class="nav-item" role="presentation">
+							    <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Home</button>
+							  </li>
+							  <li class="nav-item" role="presentation">
+							    <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Profile</button>
+							  </li>
+							  <li class="nav-item" role="presentation">
+							    <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Contact</button>
+							  </li>
+							</ul>
+							<div class="tab-content" id="pills-tabContent">
+							  <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+							  	{{single_product.fulll_description|safe}}
+							  </div>
+							  <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">...</div>
+							  <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">...</div>
+							</div>
+
+					</div>
+					<div class="col-md-2"></div>
+
+			</div>
+		</div>
+
+
+
+
+
+				<div class="container-fluid">
+			<div class="row">
+					<div class="col-md-2"></div>
+					<div class="col-md-8">
+						
+					</div>
+					<div class="col-md-2"></div>
+
+			</div>
+		</div>
+
+	{% endblock %}
+

@@ -1,0 +1,52 @@
+{%  extends "django_experiments_app/base.html"  %}
+
+
+	{% block content %}
+
+
+		<div class="container-fluid">
+			<div class="row">
+
+
+
+
+					
+					<div class="col-md-2"></div>
+					<div class="col-md-6">
+						<strong>Welcome back: </strong>{{user.username}} | <strong>Email:</strong> {{user.email }} | <a href="{% url 'accounts:profile' %}">Edit profile</a> | <a href="{% url 'accounts:logout' %}">Logout</a>
+						<hr>
+						<br><br>
+
+						<h5>Your details:</h5>
+						<hr>
+
+
+						<h5>Edit profile:</h5>
+						<hr>
+						<table class="table table-hover">
+							<form method="POST" enctype="multipart/form-data">
+
+								{% csrf_token %}
+
+								{{u_form.as_table}}
+								{{p_form.as_table}}
+						</table>
+								<button>Update profile</button> 
+
+							</form> 
+							<a href="{% url 'accounts:password_reset' %}">Reset password</a> 
+
+
+					</div>
+					
+					<div class="col-md-2">
+						<br><br>
+						<img src="{{user.profile.profile_image.url}}" class="img-fluid">
+					</div>
+					<div class="col-md-2"></div>
+
+			</div>
+		</div>
+
+
+	{% endblock %}

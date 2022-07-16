@@ -1,0 +1,26 @@
+{%  extends "django_experiments_app/base.html"  %}
+
+
+	{% block content %}
+
+
+		<div class="container-fluid">
+			<div class="row">
+				<dv class="col-md-2">
+					{% include 'blog/blog_category_list.html' %}
+				</dv>
+
+				<div class="col-md-8">
+
+						{% for blog_post in blog_posts %}
+
+							<a href="{{blog_post.get_absolute_url}}">{{blog_post}}</a>
+						{% endfor %}
+				</div>
+
+				<dv class="col-md-2"></dv>
+
+			</div>
+		</div>
+
+	{% endblock %}
